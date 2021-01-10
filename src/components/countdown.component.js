@@ -18,7 +18,6 @@ export default class Countdown extends Component {
   }
 
   startTimer() {
-    console.log('start timer button pressed')
     this.setState({
       timerOn: true,
       timerTime: this.state.timerTime,
@@ -40,13 +39,11 @@ export default class Countdown extends Component {
   };
 
   pauseTimer() {
-    console.log('pause timer button pressed')
     clearInterval(this.timer);
     this.setState({ timerOn: false });
   };
 
   clearTimer() {
-    console.log('clear timer button pressed')
     if (this.state.timerOn === false) {
       this.setState({
         timerTime: this.state.timerStart
@@ -55,7 +52,6 @@ export default class Countdown extends Component {
   }
 
   onChangeTimer(input) {
-    console.log(input + ' button pressed')
     const max = 216000000;
     if (!this.state.timerOn) {
       if (input === 'increaseSeconds' && this.state.timerTime + 1000 < max) {
@@ -68,7 +64,7 @@ export default class Countdown extends Component {
         this.setState({ timerTime: this.state.timerTime - 60000 })
       } else if (input === 'increaseHours' && this.state.timerTime + 360000 < max) {
         this.setState({ timerTime: this.state.timerTime + 3600000  })
-      } else if (input === 'decreaseMinutes' && this.state.timerTime - 360000 >= 0) {
+      } else if (input === 'decreaseHours' && this.state.timerTime - 360000 >= 0) {
         this.setState({ timerTime: this.state.timerTime - 3600000 })
       }
     }
