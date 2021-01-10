@@ -52,7 +52,7 @@ export default class Countdown extends Component {
   }
 
   onChangeTimer(input) {
-    const max = 216000000;
+    const max = 215999999;
     if (!this.state.timerOn) {
       if (input === 'increaseSeconds' && this.state.timerTime + 1000 < max) {
         this.setState({ timerTime: this.state.timerTime + 1000 })
