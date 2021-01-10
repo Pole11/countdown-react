@@ -8,6 +8,7 @@ export default class Countdown extends Component {
     this.startTimer = this.startTimer.bind(this);
     this.pauseTimer = this.pauseTimer.bind(this);
     this.clearTimer = this.clearTimer.bind(this);
+    this.resetTimer = this.resetTimer.bind(this);
     this.onChangeTimer = this.onChangeTimer.bind(this);
 
     this.state = {
@@ -51,8 +52,14 @@ export default class Countdown extends Component {
     }
   }
 
+  resetTimer() {
+    this.setState({
+      timerTime: 0
+    })
+  }
+
   onChangeTimer(input) {
-    const max = 215999999;
+    const max = 216000000;
     if (!this.state.timerOn) {
       if (input === 'increaseSeconds' && this.state.timerTime + 1000 < max) {
         this.setState({ timerTime: this.state.timerTime + 1000 })
@@ -62,13 +69,15 @@ export default class Countdown extends Component {
         this.setState({ timerTime: this.state.timerTime + 60000 })
       } else if (input === 'decreaseMinutes' && this.state.timerTime - 60000 >= 0) {
         this.setState({ timerTime: this.state.timerTime - 60000 })
-      } else if (input === 'increaseHours' && this.state.timerTime + 360000 < max) {
+      } else if (input === 'increaseHours' && this.state.timerTime + 360000 < max - 360000) {
         this.setState({ timerTime: this.state.timerTime + 3600000  })
       } else if (input === 'decreaseHours' && this.state.timerTime - 360000 >= 0) {
         this.setState({ timerTime: this.state.timerTime - 3600000 })
       }
     }
   }
+
+  
 
   render() {
 
@@ -96,6 +105,7 @@ export default class Countdown extends Component {
           <Button className="w-25 m-1" variant="outline-primary" onClick={ this.startTimer }>Play</Button>
           <Button className="w-25 m-1" variant="outline-primary" onClick={ this.pauseTimer }>Pause</Button>
           <Button className="w-25 m-1" variant="outline-primary" onClick={ this.clearTimer }>Restart</Button>
+          <Button className="w-25 m-1" variant="outline-primary" onClick={ this.resetTimer }>Reset</Button>
         
           <Alert id="alert" variant="warning" className="w-100 mt-1" onClose={() => document.getElementById('alert').style.display = 'none'} dismissible>
             The countdown has finished
