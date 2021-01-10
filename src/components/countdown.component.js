@@ -85,7 +85,7 @@ export default class Countdown extends Component {
           <Button className="w-25 m-1" variant="outline-danger" onClick={ () => {this.onChangeTimer('decreaseMinutes')} } >-1 min</Button>
           <Button className="w-25 m-1" variant="outline-danger" onClick={ () => {this.onChangeTimer('decreaseSeconds')} } >-1 sec</Button>
           
-          <h1 style={{fontSize: "6rem"}}>
+          <h1 style={{fontSize: "5rem"}}>
             {("0" + Math.floor((this.state.timerTime / 3600000) % 60)).slice(-2)}
             :
             {("0" + Math.floor((this.state.timerTime / 60000) % 60)).slice(-2)}
