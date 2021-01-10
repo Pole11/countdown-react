@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container } from 'react-bootstrap';
+
+import Countdown from './components/countdown.component';
+import NavbarComponent from './components/navbar.component';
+import FooterComponent from './components/footer.component';
+import HomePage from './components/home-page.component';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <NavbarComponent />
+      <div id='darkModeDiv' className="text-center justify-content-center">
+        <br />
+        <Container>
+          <Route exact path='/' component={ HomePage }  />
+          <Route exact path='/countdown' component={ Countdown }  />        
+        </Container>        
+      </div>
+      <FooterComponent />
+    </Router>
   );
 }
 
