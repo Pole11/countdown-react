@@ -3,11 +3,7 @@ import { Navbar, Nav }  from 'react-bootstrap';
 import { ToggleDarkMode } from './dark-mode.component';
 
 export default class NavbarComponent extends Component {
-  constructor(props) {
-    super(props);
-
-  }
-  
+ 
   render() {
     return (
       <Navbar bg="dark" variant="dark" expand="lg" style={{minHeight: "10vh"}}>
