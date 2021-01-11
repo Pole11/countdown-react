@@ -69,9 +69,9 @@ export default class Countdown extends Component {
         this.setState({ timerTime: this.state.timerTime + 60000 })
       } else if (input === 'decreaseMinutes' && this.state.timerTime - 60000 >= 0) {
         this.setState({ timerTime: this.state.timerTime - 60000 })
-      } else if (input === 'increaseHours' && this.state.timerTime + 360000 < max) {
+      } else if (input === 'increaseHours' && this.state.timerTime + 3600000 < max) {
         this.setState({ timerTime: this.state.timerTime + 3600000  })
-      } else if (input === 'decreaseHours' && this.state.timerTime - 360000 >= 0) {
+      } else if (input === 'decreaseHours' && this.state.timerTime - 3600000 >= 0) {
         this.setState({ timerTime: this.state.timerTime - 3600000 })
       }
     }
